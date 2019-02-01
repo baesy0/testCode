@@ -2,7 +2,7 @@
 #coding:utf8
 import os
 
-def searchItem(root):
+def search(root):
 	seqs = []
 	for subdir in os.listdir(root):
 		shot = []
@@ -10,7 +10,16 @@ def searchItem(root):
 			shot.append("/".join([root,subdir,f]))
 		shot.sort()
 		seqs.append(shot)
-	return results seqs
+	return seqs
+
+def proxyPath(p):
+	"""
+	경로를 입력받고 Proxy 경로를 반환한다.
+	"/project/circle/in/aces_exr/test/test.0001.exr"
+	"/project/circle/in/aces_exr/test_proxy/test.0001.exr"
+	"""
+	#return p + "_proxy"
+	return "/tmp" + p
 
 if __name__ == "__main__":
 	root = "/project/circle/in/aces_exr"
