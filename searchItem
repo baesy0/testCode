@@ -2,14 +2,17 @@
 #coding:utf8
 import os
 
-def search(root):
-	seqs = []
-	for subdir in os.listdir(root):
-		shot = []
-		for f in os.listdir(root+"/"+subdir):
-			shot.append("/".join([root,subdir,f]))
-		shot.sort()
-		seqs.append(shot)
+def searchPath(srcPath, ext):
+	dstPath = []
+	for root, subdirs, files in os.walk(srcPath)
+		for f in files:
+			basename, e = os.path.splitext(f)
+			if e != ext:
+				continue
+			
+			#만약 확장자가 exr이면 저장
+			#아니면 지나간다.
+
 	return seqs
 
 def proxyPath(p):
@@ -23,4 +26,4 @@ def proxyPath(p):
 
 if __name__ == "__main__":
 	root = "/project/circle/in/aces_exr"
-	print searchItem(root)
+	print searchPath(root, "exr")
